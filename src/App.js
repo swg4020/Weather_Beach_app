@@ -3,6 +3,7 @@ import { getBeachI } from "./api";
 import { useState } from "react";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
+import { Weather } from "./Weather";
 
 const Container = styled.div``;
 const Form = styled.form``;
@@ -32,6 +33,8 @@ function App() {
     reset();
   };
 
+  
+
   const bData = beach?.data?.getOceansBeachInfo?.item;
 
   return (
@@ -39,7 +42,7 @@ function App() {
       <Form onSubmit={handleSubmit(onSubmit)}>
         <input
           {...register("search", {
-            required: "내용을 입력해주세요.",
+            required: "지역을 입력해주세요.",
           })}
           type="text"
           placeholder="찾으시는 지역(해변) 있으신가요?"
@@ -48,7 +51,6 @@ function App() {
       </Form>
       <div>{errors?.search?.message}</div>
       <h2>{sido}</h2>
-
       {bData && (
         <ConWarp>
           {bData.length === 0 ? (
@@ -64,7 +66,8 @@ function App() {
                     ""
                   ) : (
                     <p>{`해변 : ${data.beach_knd}`}</p>
-                  )}
+                  )} 
+                  <Weather lat={data.lat} lon={data.lon}/>
                 </Con>
               ))}
             </>

@@ -1,34 +1,40 @@
-
 import styled from "styled-components";
+import { getWeather } from "./api";
+import { useQuery } from "@tanstack/react-query";
 
-
-const Layout = styled.div``;
-const Area = styled.div``;
-const ItemWrap = styled.div``;
+const Container = styled.div``;
+const ConWrap = styled.div``;
 const Con = styled.div``;
 
-export const Weather = ({ weatherData }) => {
-  
+export const Weather = ({ lat, lon }) => {
+
+  const { weatherdata } = useQuery({
+    queryKey: ["weather", lat, lon],
+    queryFn: getWeather,
+  });
   return (
-    <Layout>
-      <Area>
-        <h1>{Math.round(weatherData?.main?.temp)}°</h1>
-        <h1>{weatherData?.name}</h1>
-      </Area>
-      <ItemWrap>
-        <Con>
-          <h3>체감 온도</h3>
-          <p>{Math.round(weatherData?.main?.feels_like)}°</p>
-        </Con>
-        <Con>
-          <h3>최고 온도</h3>
-          <p>{Math.round(weatherData?.main?.temp_max)}°</p>
-        </Con>
-        <Con>
-          <h3>최저 온도</h3>
-          <p>{Math.round(weatherData?.main?.temp_min)}°</p>
-        </Con>
-      </ItemWrap>
-    </Layout>
+    <>
+      {weatherdata === undefined ? (
+        "d"
+      ) : (
+        <Container>
+
+          <ConWrap>
+            <Con>
+              <h3>체감 온도</h3>
+              <p>{Math.round(weatherdata?.main?.feels_like)}°</p>
+            </Con>
+            <Con>
+              <h3>최고 온도</h3>
+              <p>{Math.round(weatherdata?.main?.temp_max)}°</p>
+            </Con>
+            <Con>
+              <h3>최저 온도</h3>
+              <p>{Math.round(weatherdata?.main?.temp_min)}°</p>
+            </Con>
+          </ConWrap>
+        </Container>
+      )}
+    </>
   );
 };
