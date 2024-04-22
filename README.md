@@ -8,3 +8,5 @@ styled-components
 npm i styled-components
 styled-reset
 npm i styled-reset
+router
+npm i react-router-dom

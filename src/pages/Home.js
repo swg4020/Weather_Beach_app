@@ -1,9 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import { getBeachI } from "./api";
 import { useState } from "react";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
-import { Weather } from "./Weather";
+import { Weather } from "../components/Weather";
+import { getBeachI } from "../api";
+import { Link } from "react-router-dom";
 
 const Container = styled.div``;
 const Form = styled.form``;
@@ -13,7 +14,7 @@ const ConWarp = styled.div``;
 const Con = styled.div``;
 const Bg = styled.div``;
 
-function App() {
+function Home() {
   const [sido, setSido] = useState("인천");
   const beach = useQuery({
     queryKey: ["getOceansBeachInfo1", sido],
@@ -33,8 +34,7 @@ function App() {
     reset();
   };
 
-  
-
+  console.log(beach);
   const bData = beach?.data?.getOceansBeachInfo?.item;
 
   return (
@@ -59,15 +59,17 @@ function App() {
             <>
               {bData?.map((data) => (
                 <Con key={data.sta_nm}>
-                  <Bg></Bg>
-                  <h3>{data.gugun_nm}</h3>
-                  <p>{`${data.sta_nm}해수욕장`}</p>
-                  {data.beach_knd === null ? (
-                    ""
-                  ) : (
-                    <p>{`해변 : ${data.beach_knd}`}</p>
-                  )} 
-                  <Weather lat={data.lat} lon={data.lon}/>
+                  <Link to={`detail/${data.sido_nm}/${data.num}`}>
+                    <Bg></Bg>
+                    <h3>{data.gugun_nm}</h3>
+                    <p>{`${data.sta_nm}해수욕장`}</p>
+                    {data.beach_knd === null ? (
+                      ""
+                    ) : (
+                      <p>{`해변 : ${data.beach_knd}`}</p>
+                    )}
+                    <Weather lat={data.lat} lon={data.lon} />
+                  </Link>
                 </Con>
               ))}
             </>
@@ -78,4 +80,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
