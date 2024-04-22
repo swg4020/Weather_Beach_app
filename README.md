@@ -10,3 +10,5 @@ styled-reset
 npm i styled-reset
 router
 npm i react-router-dom
+swiper
+npm i swiper
