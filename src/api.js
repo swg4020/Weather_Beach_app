@@ -20,7 +20,12 @@ export const getBeachI = ({ queryKey }) => {
     .get(`${getOceansBeachInfo1}?SIDO_NM=${sido}`)
     .then((res) => res.data);
 };
-
+export const getBeachM = ({ queryKey }) => {
+  const [getOceansBeachInfo1, msido] = queryKey;
+  return instanc
+    .get(`${getOceansBeachInfo1}?SIDO_NM=${msido}`)
+    .then((res) => res.data);
+};
 const instance = axios.create({
   baseURL: "https://api.openweathermap.org/data/2.5/",
   params: {
@@ -34,8 +39,6 @@ export const getWeather = ({ queryKey }) => {
   // const lat = 35.10414541245795;
   // const lon = 129.08234252256935;
   const [weather, lat, lon] = queryKey;
-
-  console.log(queryKey);
   return instance
     .get(`${weather}?lat=${lat}&lon=${lon}`)
     .then((res) => res.data);

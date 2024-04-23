@@ -50,10 +50,10 @@ export const Items = ({ data }) => {
       </Item>
       <Item>
         <Bg>
-          <img src={IMG_URL[9].url} alt="이미지" />
+          <img src={IMG_URL[2].url} alt="이미지" />
         </Bg>
-        <h2>{data[9]?.gugun_nm}</h2>
-        <p>{data[9]?.sta_nm}</p>
+        <h2>{data[2]?.gugun_nm}</h2>
+        <p>{data[2]?.sta_nm}</p>
       </Item>
     </ItemWrap>
   );

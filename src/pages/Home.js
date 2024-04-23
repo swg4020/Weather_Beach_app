@@ -2,12 +2,13 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
-import { getBeachI } from "../api";
+import { getBeachI, getBeachM } from "../api";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { IMG_URL } from "../components/url";
 import { Items } from "./home/Items";
+import { Search } from "./Search";
 
 const Container = styled.div`
   padding: 10px 30px 30px 30px;
@@ -115,10 +116,15 @@ const Bg = styled.div`
 `;
 
 function Home() {
-  const [sido, setSido] = useState("인천");
+  const [sido, setSido] = useState("");
   const beach = useQuery({
     queryKey: ["getOceansBeachInfo1", sido],
     queryFn: getBeachI,
+  });
+  const msido = "부산";
+  const beachM = useQuery({
+    queryKey: ["getOceansBeachInfo1", msido],
+    queryFn: getBeachM,
   });
 
   const {
@@ -135,7 +141,9 @@ function Home() {
   };
 
   const bData = beach?.data?.getOceansBeachInfo?.item;
+  const sData = beachM?.data?.getOceansBeachInfo?.item;
   console.log(bData);
+  console.log(sData)
 
   const params = {
     slidesPerView: 5.2,
@@ -164,15 +172,17 @@ function Home() {
           <Button type="onSubmit">검색</Button>
         </Form>
         <EMessage>{errors?.search?.message}</EMessage>
-        <Title>{sido}</Title>
-        {bData && (
+        {bData && <Search searchdata={bData} sido={sido} />}
+
+        <Title>{msido}</Title>
+        {sData && (
           <ConWarp>
-            {bData.length === 0 ? (
+            {sData.length === 0 ? (
               "없어"
             ) : (
               <>
                 <Swiper {...params}>
-                  {bData?.map((data) => (
+                  {sData?.map((data) => (
                     <SwiperSlide key={data.sta_nm}>
                       <Link to={`detail/${data.sido_nm}/${data.num}`}>
                         <Con>
@@ -194,7 +204,7 @@ function Home() {
         )}
 
         <Title>Hot 해변</Title>
-        {bData && <Items data={bData} />}
+        {sData && <Items data={sData} />}
       </Container>
     </>
   );
