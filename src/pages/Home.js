@@ -9,6 +9,7 @@ import "swiper/css";
 import { IMG_URL } from "../components/url";
 import { Items } from "./home/Items";
 import { Search } from "./Search";
+import { Minislide } from "./Minislide";
 
 const Container = styled.div`
   padding: 10px 30px 30px 30px;
@@ -143,7 +144,7 @@ function Home() {
   const bData = beach?.data?.getOceansBeachInfo?.item;
   const sData = beachM?.data?.getOceansBeachInfo?.item;
   console.log(bData);
-  console.log(sData)
+  console.log(sData);
 
   const params = {
     slidesPerView: 5.2,
@@ -164,7 +165,7 @@ function Home() {
         <Form onSubmit={handleSubmit(onSubmit)}>
           <input
             {...register("search", {
-              required: "지역을 입력해주세요.",
+              required: "지역을(부산,인천,제주등)입력해주세요.",
             })}
             type="text"
             placeholder="찾으시는 지역(해변) 있으신가요?"
@@ -205,6 +206,9 @@ function Home() {
 
         <Title>Hot 해변</Title>
         {sData && <Items data={sData} />}
+
+        <Title>추천 해변</Title>
+        <Minislide />
       </Container>
     </>
   );
