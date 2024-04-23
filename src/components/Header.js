@@ -7,15 +7,13 @@ const SHeader = styled.header`
   justify-content: space-between;
   max-width: 450px;
   width: 100%;
+  margin: 0 auto;
+  background-color: white;
 `;
 
 const Logo = styled.div`
 font-size: 30px;
 font-weight: 700;
-`;
-const Homes = styled.div`
-font-size: 19px;
-font-weight: 600;
 `;
 
 export const Header = () => {
@@ -23,9 +21,6 @@ export const Header = () => {
     <SHeader>
       <Link to={"/"}>
         <Logo>LOGO</Logo>
-      </Link>
-      <Link to={"/"}>
-        <Homes>Home</Homes>
       </Link>
     </SHeader>
   );

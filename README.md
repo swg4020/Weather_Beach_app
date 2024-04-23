@@ -12,3 +12,5 @@ router
 npm i react-router-dom
 swiper
 npm i swiper
+컬러
+https://cssgradient.io/
