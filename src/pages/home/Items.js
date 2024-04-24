@@ -4,15 +4,32 @@ import { Link } from "react-router-dom";
 
 const ItemWrap = styled.div`
   width: 100%;
-  height: 400px;
+  height: 450px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  align-items: center;
+  a {
+    width: 48%;
+    height: 49%;
+  }
 `;
 
 const Item = styled.div`
-  width: 48%;
-  height: 50%;
+  width: 100%;
+  height: 100%;
+  h2 {
+    font-size: 15px;
+    font-weight: 400;
+    color: #1d1d1d;
+    opacity: 0.7;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  p {
+    font-size: 18px;
+    font-weight: 600;
+  }
 `;
 const Bg = styled.div`
   width: 100%;
@@ -21,6 +38,7 @@ const Bg = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 10px;
   }
 `;
 

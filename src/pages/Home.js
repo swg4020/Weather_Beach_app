@@ -10,6 +10,7 @@ import { IMG_URL } from "../components/url";
 import { Items } from "./home/Items";
 import { Search } from "./Search";
 import { Minislide } from "./Minislide";
+import { BiSearch } from "react-icons/bi";
 
 const Container = styled.div`
   padding: 10px 30px 30px 30px;
@@ -21,41 +22,51 @@ const Container = styled.div`
   background-color: white;
   position: relative;
 `;
-const Title = styled.h2`
-  font-size: 24px;
+
+const STitle = styled.h2`
+  font-size: 30px;
   font-weight: 600;
   margin-bottom: 20px;
+`;
+
+const Title = styled.h2`
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  margin-top: 100px;
 `;
 
 const Form = styled.form`
   display: flex;
   justify-content: space-between;
   margin-bottom: 40px;
+  border: 1px solid #f1f1f1;
+  border-radius: 20px;
   input {
     all: unset;
     width: 80%;
     height: 35px;
-    border-bottom: 1px solid #1d1d1d;
-    padding: 0 5px;
+    padding: 0 15px;
+    font-weight: 300;
   }
 `;
 
 const EMessage = styled.div`
   position: absolute;
   top: 55px;
-  left: 35px;
+  left: 45px;
+  color: crimson;
+  font-weight: 300;
 `;
 
 const Button = styled.button`
   all: unset;
   width: 20%;
-  background: linear-gradient(
-    360deg,
-    rgba(46, 213, 217, 1) 0%,
-    rgba(0, 247, 247, 0.5214460784313726) 100%
-  );
-  text-align: center;
   border-radius: 10px;
+  svg {
+    font-size: 26px;
+    margin-left: 40px;
+  }
 `;
 const ConWarp = styled.div`
   margin-bottom: 30px;
@@ -117,6 +128,7 @@ const Bg = styled.div`
 `;
 
 function Home() {
+  const [up, setUp] = useState("0");
   const [sido, setSido] = useState("");
   const beach = useQuery({
     queryKey: ["getOceansBeachInfo1", sido],
@@ -138,6 +150,7 @@ function Home() {
   const onSubmit = (data) => {
     const { search: keyword } = data;
     setSido(keyword);
+    setUp("100px");
     reset();
   };
 
@@ -147,7 +160,7 @@ function Home() {
   console.log(sData);
 
   const params = {
-    slidesPerView: 5.2,
+    slidesPerView: 1.1,
     spaceBetween: 20,
     breakpoints: {
       450: {
@@ -170,12 +183,14 @@ function Home() {
             type="text"
             placeholder="찾으시는 지역(해변) 있으신가요?"
           />
-          <Button type="onSubmit">검색</Button>
+          <Button type="onSubmit">
+            <BiSearch />
+          </Button>
         </Form>
         <EMessage>{errors?.search?.message}</EMessage>
-        {bData && <Search searchdata={bData} sido={sido} />}
+        {bData && <Search searchdata={bData} sido={sido} up={up} />}
 
-        <Title>{msido}</Title>
+        <STitle>{msido}</STitle>
         {sData && (
           <ConWarp>
             {sData.length === 0 ? (

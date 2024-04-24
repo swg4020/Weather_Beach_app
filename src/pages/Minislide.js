@@ -4,18 +4,49 @@ import { IMG_URL } from "../components/url";
 import { useQuery } from "@tanstack/react-query";
 import { getBeachM } from "../api";
 import styled from "styled-components";
-const ConWarp = styled.div``;
-const Con = styled.div``;
-const Bg = styled.div``;
-const Item = styled.div``;
+const ConWarp = styled.div`
+  height: 150px;
+  align-items: center;
+`;
+const Con = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+`;
+const Bg = styled.div`
+  height: 100px;
+  width: 100%;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+`;
+const Item = styled.div`
+  width: 100%;
+  h3 {
+    font-size: 14px;
+    font-weight: 400;
+    color: #1d1d1d;
+    opacity: 0.7;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  p {
+    font-size: 18px;
+    font-weight: 600;
+  }
+`;
 
 export const Minislide = () => {
   const params = {
-    slidesPerView: 5.2,
+    slidesPerView: 2.4,
     spaceBetween: 20,
     breakpoints: {
       450: {
-        slidesPerView: 3.1,
+        slidesPerView: 2.4,
         spaceBetween: 20,
       },
     },
@@ -44,7 +75,7 @@ export const Minislide = () => {
                         </Bg>
                         <Item>
                           <h3>{data.gugun_nm}</h3>
-                          <p>{`${data.sta_nm}해수욕장`}</p>
+                          <p>{`${data.sta_nm}해변`}</p>
                         </Item>
                       </Con>
                     </Link>

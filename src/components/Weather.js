@@ -3,9 +3,19 @@ import styled from "styled-components";
 import { useQuery } from "@tanstack/react-query";
 import { getWeather } from "../api";
 
-const Container = styled.div``;
-const ConWrap = styled.div``;
-const Con = styled.div``;
+const Container = styled.div`
+  width: 100%;
+  height: 100%;
+`;
+const ConWrap = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+const Con = styled.div`
+  text-align: center;
+  width: 20%;
+`;
 
 export const Weather = ({ lat, lon }) => {
   const data = useQuery({

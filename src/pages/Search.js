@@ -7,20 +7,47 @@ const ConWrap = styled.div`
   grid-template-columns: repeat(2, 1fr);
   row-gap: 30px;
   column-gap: 10px;
+  
+  margin-bottom: ${(props) => props.$Up};
 `;
 
-const Cont =styled.div``;
-const Con =styled.div``;
-const Bg =styled.div``;
-const Item =styled.div``;
-const Text =styled.div``;
+const Cont = styled.div``;
+const Con = styled.div``;
+const Bg = styled.div`
+  height: 180px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+`;
+const Item = styled.div`
+  h3 {
+    font-size: 14px;
+    font-weight: 400;
+    color: #1d1d1d;
+    opacity: 0.7;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  p {
+    font-size: 18px;
+    font-weight: 600;
+  }
+`;
+const Text = styled.div`
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+`;
 
-export const Search = ({ searchdata, sido }) => {
+export const Search = ({ searchdata, sido, up }) => {
   return (
     <>
       {sido ? <Text>"{sido}"의 검색 결과</Text> : ""}
       {searchdata && (
-        <ConWrap>
+        <ConWrap $Up={up}>
           {searchdata.map((data) => (
             <Cont key={data.sta_nm}>
               <Link to={`detail/${data.sido_nm}/${data.num}`}>
