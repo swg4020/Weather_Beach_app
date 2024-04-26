@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import { useQuery } from "@tanstack/react-query";
 import { getWeather } from "../api";
+import { Loading } from "./Loading";
 
 const Container = styled.div`
   width: 100%;
@@ -28,7 +29,7 @@ export const Weather = ({ lat, lon }) => {
   return (
     <>
       {getweatherdata === undefined ? (
-        "d"
+        <Loading />
       ) : (
         <Container>
           <ConWrap>

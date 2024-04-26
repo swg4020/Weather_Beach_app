@@ -16,6 +16,8 @@ npm i swiper
 https://cssgradient.io/
 icons
 npm i react-icons
+pages
+npm i gh-pages -D
 
 큰컨텐츠 타이틀 폰트사이즈 16~18px 두껍게 600~700
 magintop 15~20

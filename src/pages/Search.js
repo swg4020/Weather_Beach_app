@@ -7,7 +7,6 @@ const ConWrap = styled.div`
   grid-template-columns: repeat(2, 1fr);
   row-gap: 30px;
   column-gap: 10px;
-  
   margin-bottom: ${(props) => props.$Up};
 `;
 
@@ -46,6 +45,7 @@ export const Search = ({ searchdata, sido, up }) => {
   return (
     <>
       {sido ? <Text>"{sido}"의 검색 결과</Text> : ""}
+
       {searchdata && (
         <ConWrap $Up={up}>
           {searchdata.map((data) => (

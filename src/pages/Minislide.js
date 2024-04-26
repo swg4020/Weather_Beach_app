@@ -7,6 +7,7 @@ import styled from "styled-components";
 const ConWarp = styled.div`
   height: 150px;
   align-items: center;
+  margin-bottom: 150px;
 `;
 const Con = styled.div`
   display: flex;
