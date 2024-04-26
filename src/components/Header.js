@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-
+import { TiWaves } from "react-icons/ti";
 const SHeader = styled.header`
   padding: 30px;
   display: flex;
@@ -14,13 +14,17 @@ const SHeader = styled.header`
 const Logo = styled.div`
 font-size: 30px;
 font-weight: 700;
+svg{
+  font-size: 30px;
+  color: skyblue;
+}
 `;
 
 export const Header = () => {
   return (
     <SHeader>
       <Link to={"/"}>
-        <Logo>LOGO</Logo>
+        <Logo><TiWaves />SeaStory</Logo>
       </Link>
     </SHeader>
   );
