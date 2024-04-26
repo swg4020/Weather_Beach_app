@@ -31,7 +31,8 @@ magintop 10~15
 
 
 오류 해결 목록
-
 react mixed Content error
 head사이에 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
 작성 
+
+수정
