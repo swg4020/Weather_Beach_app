@@ -4,6 +4,7 @@ import { getBeachI } from "../api";
 import { Weather } from "../components/Weather";
 import styled from "styled-components";
 import { IMG_URL } from "../components/url";
+import PageTop from "../components/PageTop";
 
 const Con = styled.div`
   margin: 0 auto;
@@ -14,18 +15,24 @@ const Con = styled.div`
   background-color: white;
   padding: 20px;
   h3 {
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 400;
     color: #1d1d1d;
     opacity: 0.7;
     margin-top: 10px;
     margin-bottom: 5px;
   }
+  h2 {
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
   p {
     font-size: 18px;
     font-weight: 600;
     margin-top: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }
 `;
 const Bg = styled.div`
@@ -52,13 +59,14 @@ export const Detail = () => {
 
   return (
     <>
+      <PageTop />
       {bData && (
         <Con>
           <Bg>
             <img src={IMG_URL[0].url} alt="이미지" />
           </Bg>
           <h3>{bData.gugun_nm}</h3>
-          <p>{`${bData.sta_nm}해수욕장`}</p>
+          <h2>{`${bData.sta_nm}해수욕장`}</h2>
           {bData.beach_knd === null ? "" : <p>{`해변 : ${bData.beach_knd}`}</p>}
           <Weather lat={bData.lat} lon={bData.lon} />
         </Con>

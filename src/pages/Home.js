@@ -11,6 +11,7 @@ import { Items } from "./home/Items";
 import { Search } from "./Search";
 import { Minislide } from "./Minislide";
 import { BiSearch } from "react-icons/bi";
+import PageTop from "../components/PageTop";
 
 const Container = styled.div`
   padding: 10px 30px 30px 30px;
@@ -175,6 +176,7 @@ function Home() {
   return (
     <>
       <Container>
+        <PageTop />
         <Form onSubmit={handleSubmit(onSubmit)}>
           <input
             {...register("search", {
