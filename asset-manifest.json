@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Weather_Beach_app/static/css/main.900c1a46.css",
-    "main.js": "/Weather_Beach_app/static/js/main.e0186be3.js",
+    "main.js": "/Weather_Beach_app/static/js/main.d0a61221.js",
     "index.html": "/Weather_Beach_app/index.html",
     "main.900c1a46.css.map": "/Weather_Beach_app/static/css/main.900c1a46.css.map",
-    "main.e0186be3.js.map": "/Weather_Beach_app/static/js/main.e0186be3.js.map"
+    "main.d0a61221.js.map": "/Weather_Beach_app/static/js/main.d0a61221.js.map"
   },
   "entrypoints": [
     "static/css/main.900c1a46.css",
-    "static/js/main.e0186be3.js"
+    "static/js/main.d0a61221.js"
   ]
 }
