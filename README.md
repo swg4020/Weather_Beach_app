@@ -1,3 +1,5 @@
+## SeaStoty
+
 axios
 npm i axios
 query
@@ -29,10 +31,9 @@ magintop 10~15
 주타이틀 30px
 자간 -2픽스
 
-
 오류 해결 목록
 react mixed Content error
 head사이에 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-작성 
+작성
 
 수정
