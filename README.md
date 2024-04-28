@@ -88,3 +88,5 @@ api의 문제가 많았습니다 주제를 정하고 api를 찾아서 그런지 
 - https://www.behance.net/gallery/80310351/Beach-Locator-App?tracking_source=search_projects%7Cbeach+app&l=80
 
 ## \*프로젝트 종료 후 수정 사항
+
+- 로딩, 간격
