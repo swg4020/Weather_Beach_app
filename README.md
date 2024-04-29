@@ -42,7 +42,7 @@ js, react, node.js, git, github
 - pages / npm i gh-pages -D
 
 ## \*API
-
+- https://openweathermap.org/
 - https://www.data.go.kr/data/15058519/openapi.do
 
 ## \*어려워했던 것과 해결 방법
